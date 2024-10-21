@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ customer.name }}</title>
+</head>
+<body>
+    <h1>{{ customer.name }}</h1>
+    <p>ID: {{ customer.pk }}</p>
+    {% if customer.profile_image %}
+    <img src="{{ customer.profile_image.url }}" alt="{{ customer.name }}" width="150" height="150">
+{% else %}
+    <p>No profile image available.</p>
+{% endif %}
+    <p>Email: {{ customer.email }}</p>
+    <p>Phone: {{ customer.phone }}</p>
+    <p>Address: {{ customer.address }}</p>
+    <a href="{% url 'edit_customer' customer.pk %}">Edit Customer</a>
+
+    <h2>Repair History</h2>
+    <ul>
+        {% for repair in repair_history %}
+            <li>{{ repair.date }}: {{ repair.description }} (Cost: ${{ repair.cost }})</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
