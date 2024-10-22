@@ -3,6 +3,7 @@ env/
 
 # Ignore database files
 *.sqlite3
+db.sqlite3
 
 # Ignore compiled Python files
 *.pyc
