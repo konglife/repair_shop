@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Product, Supplier, Stock, Purchase, ProductSupplier
 from .forms import SupplierForm, PurchaseForm
+from django.http import JsonResponse
+from .models import Product
 
 def product_list(request):
     products = Product.objects.all()  # ดึงสินค้าทั้งหมดจากฐานข้อมูล

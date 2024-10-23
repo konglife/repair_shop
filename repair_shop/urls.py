@@ -19,8 +19,11 @@ from django.urls import path
 from django.urls import path, include
 from django.conf import settings # นำเข้า settings จาก Django เพื่อเข้าถึงการตั้งค่าต่างๆ ของโปรเจกต์
 from django.conf.urls.static import static # นำเข้า static สำหรับการสร้าง URL patterns ที่ใช้ในการให้บริการไฟล์ static
+from inventory import views as inventory_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('customers/', include('customers.urls')),  # เชื่อมต่อกับแอพ customers
+    path('customers/', include('customers.urls')),
+    path('inventory/', include('inventory.urls')),
+    path('repairs/', include('repairs.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 

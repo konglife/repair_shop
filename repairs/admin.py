@@ -8,10 +8,10 @@ class UsedPartInline(admin.TabularInline):
     readonly_fields = ('cost',)
 
 class RepairJobAdmin(admin.ModelAdmin):
-    list_display = ('id', 'job_name', 'customer', 'repair_date', 'labor_cost', 'parts_cost', 'total_cost', 'status', 'payment', 'created_at', 'updated_at')  # เพิ่ม updated_at
-    search_fields = ('customer__name', 'description', 'notes', 'job_name')  # เพิ่ม job_name สำหรับการค้นหา
-    list_filter = ('status', 'payment', 'repair_date', 'created_at', 'updated_at')  # เพิ่ม updated_at เพื่อการกรอง
-    ordering = ('-created_at',)
+    list_display = ('id', 'job_name', 'customer', 'repair_date', 'labor_cost', 'parts_cost', 'total_cost', 'status', 'payment', 'updated_at')
+    search_fields = ('customer__name', 'description', 'notes')
+    list_filter = ('status', 'payment', 'repair_date', 'updated_at')
+    ordering = ('-updated_at',)
     inlines = [UsedPartInline]
     readonly_fields = ('total_cost', 'parts_cost',)
 

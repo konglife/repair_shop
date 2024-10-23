@@ -1,5 +1,5 @@
 from django import forms
-from .models import Purchase, ProductSupplier
+from .models import Purchase, ProductSupplier, Supplier
 
 class PurchaseForm(forms.ModelForm):
     class Meta:
@@ -16,3 +16,8 @@ class PurchaseForm(forms.ModelForm):
             if not product_supplier:
                 raise forms.ValidationError("ไม่พบราคาสำหรับสินค้านี้จากซัพพลายเออร์ที่เลือก")
         return cleaned_data
+
+class SupplierForm(forms.ModelForm):
+    class Meta:
+        model = Supplier
+        fields = '__all__'  # หรือกำหนดฟิลด์ที่ต้องการ
