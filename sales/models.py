@@ -38,10 +38,6 @@ class SaleItem(models.Model):
 
     def delete(self, *args, **kwargs):
         # ค้นหา Stock ที่เกี่ยวข้องกับ Product และคืนจำนวนสินค้า
-        stock = self.product.stocks.first()
-        if stock:
-            stock.current_stock += self.quantity
-            stock.save()
 
         super(SaleItem, self).delete(*args, **kwargs)
 
