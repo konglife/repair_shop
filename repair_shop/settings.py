@@ -58,7 +58,7 @@ ROOT_URLCONF = 'repair_shop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],  # กำหนดให้ Django ค้นหาไฟล์ในโฟลเดอร์ templates
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -131,3 +131,6 @@ import os
 # ตั้งค่า MEDIA
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_REDIRECT_URL = 'customers'  # หน้าแรกหลังจาก login สำเร็จ
+LOGOUT_REDIRECT_URL = 'login'  # หน้าที่จะ redirect ไปหลังจาก logout

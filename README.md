@@ -2,7 +2,7 @@
    - เมื่อคุณมีการเปลี่ยนแปลงเพิ่มเติมในโปรเจคของคุณ:
      ```bash
      git add .
-     git commit -m "ส่วนของหลังบ้าน admin เสร็จสิ้น"
+     git commit -m "เริ่มส่วนหน้าบ้าน"
      git push
      ```
    - คุณสามารถทำการ push ได้เลยเพราะครั้งแรกคุณได้กำหนด `-u origin main` แล้ว.
@@ -14,3 +14,12 @@
      ```
 
      ---
+
+```bash
+source ../env/Scripts/activate
+```
+
+
+```bash
+python manage.py runserver
+```
